@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Compress and resize photos for government, university, visa, job, and official website uploads." />
+  <title>Anuj Tools | Official Photo Compressor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Anuj Tools</p>
+      <h1>Official Photo Compressor</h1>
+      <p>
+        Resize and compress photos for government, visa, university, job, and official website uploads.
+        Everything runs in your browser — your image is not uploaded anywhere.
+      </p>
+    </section>
+
+    <section class="card">
+      <label class="upload-box" for="imageInput">
+        <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp" />
+        <span>Upload photo</span>
+        <small>JPG, PNG, or WEBP</small>
+      </label>
+
+      <div id="previewWrap" class="preview-wrap hidden">
+        <img id="preview" alt="Preview" />
+      </div>
+
+      <div class="grid">
+        <label>
+          Output format
+          <select id="format">
+            <option value="image/jpeg" selected>JPG / JPEG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WEBP</option>
+          </select>
+        </label>
+
+        <label>
+          Max file size
+          <div class="input-unit">
+            <input id="targetSize" type="number" value="200" min="10" max="5000" />
+            <span>KB</span>
+          </div>
+        </label>
+
+        <label>
+          Width
+          <div class="input-unit">
+            <input id="width" type="number" placeholder="Optional" min="50" max="5000" />
+            <span>px</span>
+          </div>
+        </label>
+
+        <label>
+          Height
+          <div class="input-unit">
+            <input id="height" type="number" placeholder="Optional" min="50" max="5000" />
+            <span>px</span>
+          </div>
+        </label>
+
+        <label>
+          Fit mode
+          <select id="fitMode">
+            <option value="contain" selected>Fit inside size</option>
+            <option value="cover">Crop to exact size</option>
+          </select>
+        </label>
+
+        <label>
+          Background
+          <select id="background">
+            <option value="#ffffff" selected>White</option>
+            <option value="#f5f5f5">Light gray</option>
+            <option value="transparent">Transparent</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="quick-presets">
+        <button type="button" data-preset="passport">Passport style</button>
+        <button type="button" data-preset="small">Under 100 KB</button>
+        <button type="button" data-preset="medium">Under 200 KB</button>
+        <button type="button" data-preset="profile">Profile upload</button>
+      </div>
+
+      <button id="compressBtn" class="primary" disabled>Compress photo</button>
+
+      <div id="result" class="result hidden">
+        <div>
+          <p class="label">Compressed file</p>
+          <h2 id="fileInfo">—</h2>
+          <p id="dimensionInfo">—</p>
+        </div>
+        <a id="downloadBtn" class="download" download="compressed-photo.jpg">Download</a>
+      </div>
+    </section>
+
+    <section class="card info">
+      <h2>Common official upload rules</h2>
+      <div class="rules">
+        <article>
+          <strong>File size</strong>
+          <span>Usually under 100 KB, 200 KB, 500 KB, or 1 MB.</span>
+        </article>
+        <article>
+          <strong>Format</strong>
+          <span>Most official websites prefer JPG/JPEG.</span>
+        </article>
+        <article>
+          <strong>Dimensions</strong>
+          <span>Some sites ask exact pixels like 600×600 or 350×350.</span>
+        </article>
+        <article>
+          <strong>Privacy</strong>
+          <span>This tool processes images locally in the browser.</span>
+        </article>
+      </div>
+      <p class="note">
+        Always check the exact rule on the official website before uploading. This tool helps you match the size, format, and dimensions.
+      </p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">Preset applied</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
